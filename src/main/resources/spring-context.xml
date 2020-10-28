@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+    <!--    xml注册-->
+    <!--spring 给创建对象
+        spring 核心配置文件
+        bean:
+            三个属性：id(bean包中类的对象名) class(类的路径)
+                      scope  默认所有的对象都是单例(singleton)，prototype 创建普通对象
+            子元素property：
+                三个属性    name 属性的名称  value 赋值   ref 指向容器另外一个对象
+        util：list map array
+        p   对象的属性  xxx="" xxx-ref=""
+        -->
+    <!--<bean id="user" class="com.qf.arner.spring.bean.User" scope="singleton"
+        p:username="zhangsan" p:address-ref="address">
+&lt;!&ndash;        <property name="username" value="zhangsan"/>&ndash;&gt;
+        <property name="password" value="123456"/>
+        <property name="list" ref="list">
+            &lt;!&ndash;<list>
+                <value>11</value>
+                <value>22</value>
+                <value>33</value>
+            </list>&ndash;&gt;
+        </property>
+&lt;!&ndash;        <property name="address" ref="address"/>&ndash;&gt;
+    </bean>
+    <bean id="address" class="com.qf.arner.spring.bean.Address"/>
+    <util:list id="list">
+        <value>11</value>
+        <value>22</value>
+        <value>33</value>
+    </util:list>-->
+
+    <!--    注解注册-->
+    <!--    开启注解注入 地址为需扫描包的根目录-->
+    <context:component-scan base-package="com.qf.arner.spring"/>
+    <!--
+        @Componet 作用  往容器中注册对象，在类上使用
+                 （ - value 给容器中的bean指定名字 如果不指定则默认类名首字母小写【一般不用】）
+        @Service 声明在Service层
+        @Controller 声明在控制层
+        @Repository 声明在Dao层
+        -->
+</beans>
